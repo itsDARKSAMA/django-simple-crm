@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Django CRM | Delete Record{% endblock title %}
+
+{% block content %}
+<br>
+<div class="d-flex justify-content-center">
+    <div class="card bg-light border-primary mb-3" style="width: 35rem;">
+        <div class="card-header text-danger">
+            Delete Record
+        </div>
+        <div class="card-body">
+            <p class="card-text">Are you sure to <strong class="text-danger">Delete</strong> this record <strong>({{record.first_name}} {{record.last_name}})</strong> ?</p>
+            <p class="text-danger text-decoration-underline "> <strong>Becarful !</strong> You can't return after do this step.</p>
+            <br>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="btn-group d-flex" role="group" aria-label="Delete Confirmation">
+                    <input type="submit" name="cancel" value="Canecl" class="btn btn-outline-secondary">
+                    <input type="submit" name="delete" value="Delete" class="btn btn-outline-danger">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+

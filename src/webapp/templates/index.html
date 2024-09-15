@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Django CRM
+{% endblock title %}
+
+
+{% block content %}
+<br>
+<div class="d-flex justify-content-center">
+    <div class="card bg-light border-primary text-center mb-3" style="width: 45rem;">
+        {% if request.user.is_authenticated %}
+        <div class="card-header">
+            <h3 >Welocme to Django CRM - {{request.user}} 👋</h3>
+            Keeps track of your records effectivley !
+        </div>
+        <div class="card-body">
+            <a href="{% url 'dashboard' %}" class="btn btn-priamry w-100">Dashboard</a>
+            <br>
+            <br>
+            <a href="{% url 'new-record' %}" class="btn btn-priamry w-100">New Record</a>
+        </div>
+        {% else %}
+        <div class="card-header">
+            <h3 >Welocme to Django CRM</h3>
+            Keeps track of your records effectivley !
+        </div>
+        <div class="card-body">
+            <div class="btn-group d-flex" role="group" aria-label="Delete Confirmation">
+                <a href="{% url 'login' %}" class="btn btn-outline-secondary w-100">Sign-In</a>
+                <a href="{% url 'register' %}" class="btn btn-outline-dark w-100">Sign-Up</a>
+            </div>
+       
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

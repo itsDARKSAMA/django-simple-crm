@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Record | Django CRM{% endblock title %}
+
+{% block content %}
+<br>
+<div class="d-flex justify-content-center">
+    <div class="card bg-light border-primary mb-3" style="width: 35rem;">
+        <div class="card-header">
+            New Record
+        </div>
+        <div class="card-body">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" class="btn btn-success form-control">Add New Record</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

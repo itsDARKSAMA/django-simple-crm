@@ -1,0 +1,12 @@
+<form class="d-flex" method="GET" action="{% url 'search' %}">
+    {% comment %} {% csrf_token %} {% endcomment %}
+    <input class="form-control me-sm-2" name="query"
+    type="search"
+    placeholder="Write something here 🔍"
+    {% if query %}
+    value= {{query}}
+    {% endif %}
+    >
+    <br>
+    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+  </form>
